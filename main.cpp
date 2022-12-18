@@ -2,7 +2,6 @@
 
 int main()
 {
-    vector<Human*> vec;
 
     return 0;
 }
