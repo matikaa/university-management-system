@@ -1,5 +1,5 @@
-#ifndef UNTITLED1_FUNCTIONS_H
-#define UNTITLED1_FUNCTIONS_H
+#ifndef UNIVERSITY_MANAGEMENT_MANAGE_CLASSES_H
+#define UNIVERSITY_MANAGEMENT_MANAGE_CLASSES_H
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,6 +16,12 @@ enum type_t
 };
 
 class Human{
+protected:
+    string name;
+    string surname;
+    uint16_t age;
+    uint64_t ID;
+    uint64_t phone_number;
 public:
     string login = "qwerty";
     string password = "1234";
@@ -23,9 +29,9 @@ public:
     virtual ~Human(){};
 
     bool logging(string log, string pass);
-    void add_name(string Name);
-    void add_surname(string Name);
-    void add_age(uint16_t Age);
+    void add_name(string to_add);
+    void add_surname(string to_add);
+    void add_age(uint16_t number);
     void add_ID(uint64_t number);
     void add_phone_number(uint64_t number);
 
@@ -38,16 +44,14 @@ public:
     virtual void show_student(){};
     virtual void show_teacher(){};
     virtual void show_employee(){};
-
-protected:
-    string name;
-    string surname;
-    uint16_t age;
-    uint64_t ID;
-    uint64_t phone_number;
 };
 
 class Teacher : public Human{
+private:
+    string degree;
+    string faculty;
+    vector<string> subjects_to_teach;
+    double salary;
 public:
     Teacher(){};
     ~Teacher(){};
@@ -62,15 +66,12 @@ public:
     double get_salary(){return salary;};
 
     void show_teacher() override;
-
-private:
-    string degree;
-    string faculty;
-    vector<string> subjects_to_teach;
-    double salary;
 };
 
 class Employee : public Human{
+private:
+    string position;
+    double salary;
 public:
     Employee(){};
     ~Employee(){};
@@ -81,10 +82,6 @@ public:
     double get_salary(){return salary;};
 
     void show_employee() override;
-
-private:
-    string position;
-    double salary;
 };
 
 class Courses{
@@ -98,6 +95,11 @@ public:
 };
 
 class Student : public Human, public Courses{
+private:
+    bool is_insurance_paid;
+    string faculty;
+    string major;
+    vector<Courses*> courses;
 public:
     Student(){is_insurance_paid = 0;};
     ~Student(){};
@@ -115,24 +117,7 @@ public:
     vector<Courses*> get_courses(){return courses;};
 
     void show_student() override;
-
-private:
-    bool is_insurance_paid;
-    string faculty;
-    string major;
-    vector<Courses*> courses;
 };
 
-void show_all_students(vector<Student*> *students);
-void show_all_teachers(vector<Teacher*> *teachers);
-void show_all_employees(vector<Employee*> *employees);
 
-
-short menu_management(vector<Student*> *students, vector<Teacher*> *teachers, vector<Employee*> *employees);
-
-int load_from_file(const char *filename, vector<Student*> *students, vector<Teacher*> *teachers, vector<Employee*> *employees, int type);
-int save_to_file(const char *filename, vector<Student*> *students, vector<Teacher*> *teachers, vector<Employee*> *employees, enum type_t type);
-
-void free_all(vector<Student*> *students, vector<Teacher*> *teachers, vector<Employee*> *employees);
-
-#endif //UNTITLED1_FUNCTIONS_H
+#endif //UNIVERSITY_MANAGEMENT_MANAGE_CLASSES_H
