@@ -1,0 +1,9 @@
+Mariusz|Janik|46|113424|513059002|19830|konserwator
+Krzysztof|Szymczak|35|93547|321067001|19880|doktorant
+Monika|Nowak|29|74236|421057003|19920|asystent
+Andrzej|Kowalski|41|124578|515069004|19770|adjunkt
+Agnieszka|Wojcik|33|84739|326056008|19890|starszy wykladowca
+Bartlomiej|Majewski|40|114987|511065005|19780|dyrektor dzialu nauki
+Justyna|Wisniewska|28|65346|424067002|19930|koordynator projektu badawczego
+Marcin|Krawczyk|38|105345|316065007|19850|kierownik laboratorium
+Joanna|Kowalczyk|30|75638|425059001|19910|starszy asystent

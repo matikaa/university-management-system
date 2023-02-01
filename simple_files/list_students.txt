@@ -1,0 +1,6 @@
+Jurek|Brzeczyk|21|240593|502111333|1|weeia|informatyka|4|cyfrowka|2|3|0|architektura|3|4|4|0|so2|3|3|0|grafika|4|5|5|0
+Adam|Nowak|22|220394|501122334|0|mechaniczny|automatyka|3|cyfrowka|2|3|0|projektowanie oprogramowania|3|4|4|0|teoria informatyki|3|3|0
+Ewa|Kowalska|23|230495|503134444|1|binoz|mechatronika|4|cyfrowka|2|3|0|architektura systemow komputerowych|3|4|4|0|systemy operacyjne|3|3|0|animacja 3D|4|5|5|0
+Jan|Majewski|24|240396|504145333|0|FTIMS|elektrotechnika|4|cyfrowka|2|3|0|projektowanie baz danych|3|4|4|0|sieci komputerowe|3|3|0|edycja wideo|4|5|5|0
+Agata|Wojciechowska|25|250497|505156543|0|IIF|elektronika|2|algorithms and data structures|3|3|0|projektowanie gier|4|5|5|0
+Tomasz|Pawlak|26|260398|506167534|1|kryptografii|dietetyka|3|programowanie aplikacji mobilnych|3|4|4|0|bezpieczenstwo komputerowe|3|3|0|fotografia cyfrowa|4|5|5|0

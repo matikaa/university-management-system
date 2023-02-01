@@ -1,0 +1,6 @@
+Mariusz|Janik|46|113424|513059002|19830|mechaniczny|doktor inzynier|4|programowanie|technika informacyjna|architektura|matematyka dyskretyna
+Anna|Nowak|32|958457|715203050|32900|elektryczny|inzynier|3|technologia informacyjna|architektura oprogramowania|algebra liniowa
+Marek|Kowalski|38|123456|720705001|16342|elektroniczny|doktor inzynier|5|projektowanie systemow|informatyka|architektura komputerowa|teoria grafow|rachunek prawdopodobienstwa
+Ewa|Wisniewska|29|456789|610906003|18400|weeia|magister inzynier|3|analiza danych|inzynieria oprogramowania|architektura systemow
+Jan|Nowakowski|40|789101|520103004|23434|binoz|inzynier|2|tworzenie oprogramowania|teoria obliczen
+Joanna|Kowalska|35|112233|610708005|12949|automatyki|magister|3|big data|technologie informacyjne|logika matematyczna
