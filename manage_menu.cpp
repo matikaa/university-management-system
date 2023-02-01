@@ -28,11 +28,9 @@ int log_in()
 
     cout << "Enter login:" << endl;
     getline(cin, login);
-    fflush(stdin);
 
     cout << "Enter password:" << endl;
     getline(cin, password);
-    fflush(stdin);
 
     while(1)
     {
@@ -44,7 +42,6 @@ int log_in()
 
         cout << "Wrong login or password. If you want to break, enter YES or whatever else if you want to try again" << endl;
         getline(cin, temporary);
-        fflush(stdin);
 
         if(temporary.compare("yes") == 0 || temporary.compare("YES") == 0)
         {
@@ -54,11 +51,9 @@ int log_in()
 
         cout << "Enter login:" << endl;
         getline(cin, login);
-        fflush(stdin);
 
         cout << "Enter password:" << endl;
         getline(cin, password);
-        fflush(stdin);
     }
 
     return 0;
@@ -73,7 +68,7 @@ short menu_management()
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
-    fflush(stdin);
+    cin.ignore(1, '\n');
     return choice;
 }
 void submenu()
@@ -102,6 +97,9 @@ void submenu()
                 teachers_file_management(teachers);
             else if(number == 3)
                 employees_file_management(employees);
+            else
+                cin.ignore(1, '\n');
+
         }
         else if(choice == 10)
             break;
@@ -124,7 +122,7 @@ void students_management(vector<Student*> &students)
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     if(choice == 1)
     {
@@ -137,7 +135,6 @@ void students_management(vector<Student*> &students)
         temp->add_name(str_to_add);
 
         cout << "Student's surname:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         temp->add_surname(str_to_add);
 
@@ -145,25 +142,27 @@ void students_management(vector<Student*> &students)
         cin >> age;
         temp->add_age(age);
 
+        cin.ignore(1, '\n');
         cout << "Student's ID:" << endl;
         cin >> number;
         temp->add_ID(number);
 
+        cin.ignore(1, '\n');
         cout << "Student's phone number:" << endl;
         cin >> number;
         temp->add_phone_number(number);
 
+        cin.ignore(1, '\n');
         cout << "Insurance paid? 1 - yes, 2 - no" << endl;
         cin >> number;
         if(number == 1)
             temp->pay_insurance();
 
-        fflush(stdin);
+        cin.ignore(1, '\n');
         cout << "Student's faculty:" << endl;
         getline(cin, str_to_add);
         temp->add_faculty(str_to_add);
 
-        fflush(stdin);
         cout << "Student's major:" << endl;
         getline(cin, str_to_add);
         temp->add_major(str_to_add);
@@ -172,7 +171,6 @@ void students_management(vector<Student*> &students)
         while(1)
         {
             cout << "Course:";
-            fflush(stdin);
             getline(cin, str_to_add);
             if(str_to_add.compare("end") == 0)
                 break;
@@ -183,6 +181,7 @@ void students_management(vector<Student*> &students)
             while(1)
             {
                 cin >> grade;
+                cin.ignore(1, '\n');
                 if(grade == 0)
                     break;
                 temp->add_grade_to_course(str_to_add, grade);
@@ -196,7 +195,7 @@ void students_management(vector<Student*> &students)
     {
         cout << "Enter student's ID:" << endl;
         cin >> number;
-        for(int i = 0; i < students.size(); ++i)
+        for(unsigned int i = 0; i < students.size(); ++i)
         {
             if(number == students[i]->get_ID())
             {
@@ -224,7 +223,7 @@ void students_management(vector<Student*> &students)
     {
         cout << "Enter student's ID who you want to delete: " << endl;
         cin >> number;
-        for(int i = 0; i < students.size(); ++i)
+        for(unsigned int i = 0; i < students.size(); ++i)
         {
             if(students[i]->get_ID() == number)
             {
@@ -246,6 +245,8 @@ void students_management(vector<Student*> &students)
             students.clear();
             cout << "List has been deleted" << endl;
         }
+        else
+            cout << "No students to delete" << endl;
     }
 }
 void teachers_management(vector<Teacher*> &teachers)
@@ -253,7 +254,6 @@ void teachers_management(vector<Teacher*> &teachers)
     string str_to_add;
     uint16_t age;
     uint64_t number;
-    int grade;
     bool check = 0;
 
     cout << "\t1 - add teacher\n\t2 - find teacher by ID\n\t3 - show list of teachers\n\t4 - delete teacher\n\t5 - delete list of teachers\n" << endl;
@@ -262,7 +262,7 @@ void teachers_management(vector<Teacher*> &teachers)
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     if(choice == 1)
     {
@@ -277,7 +277,6 @@ void teachers_management(vector<Teacher*> &teachers)
         temp->add_name(str_to_add);
 
         cout << "Teacher's surname:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         temp->add_surname(str_to_add);
 
@@ -285,33 +284,34 @@ void teachers_management(vector<Teacher*> &teachers)
         cin >> age;
         temp->add_age(age);
 
+        cin.ignore(1, '\n');
         cout << "Teacher's ID:" << endl;
         cin >> number;
         temp->add_ID(number);
 
+        cin.ignore(1, '\n');
         cout << "Teacher's phone number:" << endl;
         cin >> number;
         temp->add_phone_number(number);
 
+        cin.ignore(1, '\n');
         cout << "Teacher's degree:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         temp->add_degree(str_to_add);
 
         cout << "Teacher's faculty:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         temp->add_faculty(str_to_add);
 
         cout << "Teacher's salary:" << endl;
         cin >> money;
         temp->add_salary(money);
+        cin.ignore(1, '\n');
 
         cout << "Add subjects which teacher takes care and write 'end' to finish:" << endl;
         while(1)
         {
             cout << "Subject:";
-            fflush(stdin);
             getline(cin, str_to_add);
             if(str_to_add.compare("end") == 0)
                 break;
@@ -325,7 +325,7 @@ void teachers_management(vector<Teacher*> &teachers)
     {
         cout << "Enter teacher's ID:" << endl;
         cin >> number;
-        for(int i = 0; i < teachers.size(); ++i)
+        for(unsigned int i = 0; i < teachers.size(); ++i)
         {
             if(number == teachers[i]->get_ID())
             {
@@ -353,7 +353,7 @@ void teachers_management(vector<Teacher*> &teachers)
     {
         cout << "Enter teacher's ID who you want to delete: " << endl;
         cin >> number;
-        for(int i = 0; i < teachers.size(); ++i)
+        for(unsigned int i = 0; i < teachers.size(); ++i)
         {
             if(teachers[i]->get_ID() == number)
             {
@@ -375,6 +375,9 @@ void teachers_management(vector<Teacher*> &teachers)
             teachers.clear();
             cout << "List has been deleted" << endl;
         }
+        else
+            cout << "No teachers to delete" << endl;
+        cin.ignore(1, '\n');
     }
 }
 void employees_management(vector<Employee*> &employees)
@@ -390,7 +393,7 @@ void employees_management(vector<Employee*> &employees)
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     if(choice == 1)
     {
@@ -405,7 +408,6 @@ void employees_management(vector<Employee*> &employees)
         emp->add_name(str_to_add);
 
         cout << "Employee's surname:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         emp->add_surname(str_to_add);
 
@@ -413,16 +415,18 @@ void employees_management(vector<Employee*> &employees)
         cin >> age;
         emp->add_age(age);
 
+        cin.ignore(1, '\n');
         cout << "Employee's ID:" << endl;
         cin >> number;
         emp->add_ID(number);
 
+        cin.ignore(1, '\n');
         cout << "Employee's phone number:" << endl;
         cin >> number;
         emp->add_phone_number(number);
 
+        cin.ignore(1, '\n');
         cout << "Employee's position:" << endl;
-        fflush(stdin);
         getline(cin, str_to_add);
         emp->add_position(str_to_add);
 
@@ -436,7 +440,7 @@ void employees_management(vector<Employee*> &employees)
     {
         cout << "Enter employee's ID:" << endl;
         cin >> number;
-        for(int i = 0; i < employees.size(); ++i)
+        for(unsigned int i = 0; i < employees.size(); ++i)
         {
             if(number == employees[i]->get_ID())
             {
@@ -464,7 +468,7 @@ void employees_management(vector<Employee*> &employees)
     {
         cout << "Enter employee's ID who you want to delete: " << endl;
         cin >> number;
-        for(int i = 0; i < employees.size(); ++i)
+        for(unsigned int i = 0; i < employees.size(); ++i)
         {
             if(employees[i]->get_ID() == number)
             {
@@ -486,6 +490,8 @@ void employees_management(vector<Employee*> &employees)
             employees.clear();
             cout << "List has been deleted" << endl;
         }
+        else
+            cout << "No employees to delete" << endl;
     }
 }
 
@@ -494,12 +500,11 @@ void students_file_management(vector<Student*> &students)
     short read_load = 0;
     cout << "Do you want to read from file (1) or save to file (2)?" << endl;
     cin >> read_load;
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     string filename;
     cout << "Enter name of file:" << endl;
     getline(cin, filename);
-    fflush(stdin);
 
     if(read_load == 1)
     {
@@ -511,7 +516,6 @@ void students_file_management(vector<Student*> &students)
         int i = 0, choice = 0, grade = 0;
         uint16_t Age;
         uint64_t number;
-        double money;
 
         if(!file.is_open())
         {
@@ -528,8 +532,12 @@ void students_file_management(vector<Student*> &students)
             while(file)
             {
                 *(array + i) = file.get();
-                if(*array == '\n')
+                if(*array == '\n' || *array == '\r')
+                {
+                    i--;
+                    *array = '\0';
                     continue;
+                }
                 if(*(array + (i++)) == '|')
                 {
                     *(array + i - 1) = '\0';
@@ -611,7 +619,7 @@ void students_file_management(vector<Student*> &students)
                 while(file)
                 {
                     *(array + i) = file.get();
-                    if(*(array + (i++)) == '|')
+                    if(*(array + (i++)) == '|' || *(array +i-1) == '\n')
                     {
                         *(array + i - 1) = '\0';
                         break;
@@ -657,12 +665,12 @@ void students_file_management(vector<Student*> &students)
             cout << "Incorrect destination file" << endl;
             return;
         }
-        for(int i = 0; i < students.size(); ++i)
+        for(unsigned int i = 0; i < students.size(); ++i)
         {
             file << students[i]->get_name() << "|" << students[i]->get_surname() << "|" << students[i]->get_age() << "|";
             file << students[i]->get_ID() << "|" << students[i]->get_phone() << "|" << students[i]->get_insurance() << "|";
             file << students[i]->get_faculty() << "|" << students[i]->get_major() << "|" << students[i]->get_courses().size() << "|";
-            for(int j = 0; j < students[i]->get_courses().size(); ++j)
+            for(unsigned int j = 0; j < students[i]->get_courses().size(); ++j)
             {
                 file << students[i]->get_courses()[j]->course << "|";
                 for(int k = 0; k < students[i]->get_courses()[j]->number_of_grades; ++k)
@@ -673,6 +681,7 @@ void students_file_management(vector<Student*> &students)
                 if(j + 1 != students[i]->get_courses().size())
                     file << "|";
             }
+
             file << "\n";
         }
 
@@ -692,12 +701,11 @@ void teachers_file_management(vector<Teacher*> &teachers)
     short read_load = 0;
     cout << "Do you want to read from file (1) or save to file (2)?" << endl;
     cin >> read_load;
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     string filename;
     cout << "Enter name of file:" << endl;
     getline(cin, filename);
-    fflush(stdin);
 
     if(read_load == 1)
     {
@@ -837,13 +845,13 @@ void teachers_file_management(vector<Teacher*> &teachers)
             return;
         }
 
-        for(int i = 0; i < teachers.size(); ++i)
+        for(unsigned int i = 0; i < teachers.size(); ++i)
         {
             file << teachers[i]->get_name() << "|" << teachers[i]->get_surname() << "|" << teachers[i]->get_age() << "|";
             file << teachers[i]->get_ID() << "|" << teachers[i]->get_phone() << "|" << teachers[i]->get_salary() << "|";
             file << teachers[i]->get_faculty() << "|" << teachers[i]->get_degree() << "|" << teachers[i]->get_subjects().size();
 
-            for(int j = 0; j < teachers[i]->get_subjects().size(); ++j)
+            for(unsigned int j = 0; j < teachers[i]->get_subjects().size(); ++j)
             {
                 file << "|" << teachers[i]->get_subjects()[j];
             }
@@ -866,12 +874,11 @@ void employees_file_management(vector<Employee*> &employees)
     short read_load = 0;
     cout << "Do you want to read from file (1) or save to file (2)?" << endl;
     cin >> read_load;
-    fflush(stdin);
+    cin.ignore(1, '\n');
 
     string filename;
     cout << "Enter name of file:" << endl;
     getline(cin, filename);
-    fflush(stdin);
 
     if(read_load == 1)
     {
@@ -886,7 +893,7 @@ void employees_file_management(vector<Employee*> &employees)
         string str_to_add;
         char array[50];
         char to_delete;
-        int i = 0, choice = 0, grade = 0;
+        int i = 0;
         uint16_t Age;
         uint64_t number;
         double money;
@@ -983,7 +990,7 @@ void employees_file_management(vector<Employee*> &employees)
             return;
         }
 
-        for(int i = 0; i < employees.size(); ++i)
+        for(unsigned int i = 0; i < employees.size(); ++i)
         {
             file << employees[i]->get_name() << "|" << employees[i]->get_surname() << "|" << employees[i]->get_age() << "|";
             file << employees[i]->get_ID() << "|" << employees[i]->get_phone() << "|" << employees[i]->get_salary() << "|" << employees[i]->get_position() << endl;
@@ -1003,14 +1010,14 @@ void employees_file_management(vector<Employee*> &employees)
 
 void free_all(vector<Student*> &students, vector<Teacher*> &teachers, vector<Employee*> &employees)
 {
-    for(int i = 0; i < students.size(); ++i)
+    for(unsigned int i = 0; i < students.size(); ++i)
     {
-        for(int j = 0; j < students[i]->get_courses().size(); ++j)
+        for(unsigned int j = 0; j < students[i]->get_courses().size(); ++j)
             free(students[i]->get_courses()[j]->grades);
         students[i]->get_courses().clear();
     }
 
-    for(int i = 0; i < teachers.size(); ++i)
+    for(unsigned int i = 0; i < teachers.size(); ++i)
         teachers[i]->get_subjects().clear();
 
     students.clear();
