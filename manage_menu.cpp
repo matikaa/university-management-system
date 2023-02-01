@@ -111,14 +111,12 @@ void submenu()
 void students_management(vector<Student*> &students)
 {
     string str_to_add;
-    uint16_t age;
-    uint64_t number;
-    int grade;
-    bool check = 0;
+    uint16_t age = 0, check = 0, choice = 0;
+    uint64_t number = 0;
+    uint32_t grade = 0;
 
     cout << "\t1 - add student\n\t2 - find student by ID\n\t3 - show list of students\n\t4 - delete student\n\t5 - delete list of students\n" << endl;
 
-    short choice;
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
@@ -246,19 +244,17 @@ void students_management(vector<Student*> &students)
             cout << "List has been deleted" << endl;
         }
         else
-            cout << "No students to delete" << endl;
+            cout << "List has not been deleted" << endl;
     }
 }
 void teachers_management(vector<Teacher*> &teachers)
 {
     string str_to_add;
-    uint16_t age;
-    uint64_t number;
-    bool check = 0;
+    uint16_t age = 0, check = 0, choice = 0;
+    uint64_t number = 0;
 
     cout << "\t1 - add teacher\n\t2 - find teacher by ID\n\t3 - show list of teachers\n\t4 - delete teacher\n\t5 - delete list of teachers\n" << endl;
 
-    short choice;
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
@@ -376,20 +372,17 @@ void teachers_management(vector<Teacher*> &teachers)
             cout << "List has been deleted" << endl;
         }
         else
-            cout << "No teachers to delete" << endl;
-        cin.ignore(1, '\n');
+            cout << "List has not been deleted" << endl;
     }
 }
 void employees_management(vector<Employee*> &employees)
 {
     string str_to_add;
-    uint16_t age;
-    uint64_t number;
-    bool check = 0;
+    uint16_t age = 0, check = 0, choice = 0;
+    uint64_t number = 0;
 
     cout << "\t1 - add employee\n\t2 - find employee by ID\n\t3 - show list of employees\n\t4 - delete employee\n\t5 - delete list of employees\n" << endl;
 
-    short choice;
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
@@ -491,7 +484,7 @@ void employees_management(vector<Employee*> &employees)
             cout << "List has been deleted" << endl;
         }
         else
-            cout << "No employees to delete" << endl;
+            cout << "List has not been deleted" << endl;
     }
 }
 
