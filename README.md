@@ -36,7 +36,7 @@ add_executable(university_management main.cpp manage_classes.cpp manage_classes.
 
 or compile on Linux:
 ```c
-g++ -Wall -pedantic -g main.cpp manage_menu.cpp manage_classses.cpp -o manage
+g++ -Wall -pedantic -g main.cpp manage_menu.cpp manage_classes.cpp -o manage
 ```
 then run:
 ```c
