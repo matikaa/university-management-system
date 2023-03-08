@@ -1,6 +1,6 @@
 # Univeristy-Management-System
 
-Univeristy Management system build with C++ which allows to manage students, teachers and employees.
+Univeristy management system build with C++ which allows to manage students, teachers and employees.
 
 ## Functions for all members:
 
